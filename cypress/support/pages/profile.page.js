@@ -1,6 +1,6 @@
 const profilePage = {
     customerName: () => {
-        return cy.get('[data-testid="customer-name"]');
+        return cy.get('[data-testid="CustomerName"]').should('have.text','Maia Michael');
     }
 };
 
