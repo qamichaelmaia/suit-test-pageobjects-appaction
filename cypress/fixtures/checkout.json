@@ -1,0 +1,15 @@
+{
+  "usuario": {
+    "nome": "Maia Michael",
+    "email": "michaelqa@hotmail.com",
+    "senha": "lojaebacteste"
+  },
+  "endereco": {
+    "nome": "João",
+    "telefone": "7499889988",
+    "end1": "Pé de Feijão",
+    "cidade": "Baldur's Gate",
+    "estado": "Clérigo",
+    "cep": "44700222"
+  }
+}
