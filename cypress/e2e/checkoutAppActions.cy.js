@@ -17,9 +17,10 @@ describe("Teste de Checkout", () => {
         // Executa apenas uma vez antes de todos os testes
         email = loginData.email;
         senha = loginData.senha;
-        cy.setCookie("ebacStoreVersion", "v2", { domain: "lojaebac.ebaconline.art.br" });
+        cy.setCookie("ebacStoreVersion", "v2", { domain: "lojaebac.ebaconline.art.br" });//Cookie selecionado para o site
         cy.visit("/");
-        checkoutActions.login(email, senha); // Realiza o login uma vez
+        // Realiza o login uma vez
+        checkoutActions.login(email, senha); 
     });
 
     context('Checkout completo', () => {

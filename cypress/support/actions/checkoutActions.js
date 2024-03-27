@@ -1,7 +1,8 @@
 const profilePage = require("../pages/profile.page");//Não necessário no momento
 
 const checkoutActions = {
-
+    
+    //Entrarcom um login fixo
     login: (email, senha) => {
         cy.login(email, senha);
         cy.visit('/')
