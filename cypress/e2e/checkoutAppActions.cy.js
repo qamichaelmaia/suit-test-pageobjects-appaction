@@ -19,21 +19,17 @@ describe("Teste de Checkout", () => {
         senha = loginData.senha;
         cy.setCookie("ebacStoreVersion", "v2", { domain: "lojaebac.ebaconline.art.br" });//Cookie selecionado para o site
         cy.visit("/");
-        // Realiza o login uma vez
-        checkoutActions.login(email, senha); 
+        
+        checkoutActions.login(email, senha);// Realiza o login uma vez
     });
 
     context('Checkout completo', () => {
 
         it('Deve fazer o checkout de produto', () => {
-            //Adicionando produto
-            checkoutActions.addProductToCart();
-            //Adicionando novo endereço
-            checkoutActions.addNewAddress(nome, telefone, end1, cidade, estado, cep);
-            //Verificando confirmação de checkout
-            checkoutActions.verifyMessage();
-            //Voltando para página inicial
-            checkoutActions.backHome();
+            checkoutActions.addProductToCart();//Adicionando produto
+            checkoutActions.addNewAddress(nome, telefone, end1, cidade, estado, cep);//Adicionando novo endereço
+            checkoutActions.verifyMessage();//Verificando confirmação de checkout
+            checkoutActions.backHome();//Voltando para página inicial
         });
     });
 });
