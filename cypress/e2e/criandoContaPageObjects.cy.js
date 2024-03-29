@@ -11,6 +11,9 @@ describe("Fluxo de criação de conta", () => {
         cy.visit("/");
     });
     it("Deve criar conta com sucesso", () => {
+        
+        let email = `michael@ebac${Math.floor(Math.random() * 100000000)}.com.br`; // Gera um email aleatório
+
         homePage.openMenu("Account");
         cy.get('[data-testid="signUp"]').click();
 
