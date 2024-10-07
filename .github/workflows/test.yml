@@ -1,0 +1,33 @@
+name: EBAC CI
+# Define em quais eventos essa ação será executada (push ou workflow dispatch)
+on:
+  push:
+    branches: 
+      - ci  # Usar - para cada branch listada
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    # Definição dos passos da pipeline
+    steps:
+      # Primeiro, fazemos o checkout do repositório
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      # Instalação da versão do Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'  # Colocar a versão entre aspas é uma boa prática
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        continue-on-error: true
+        with:
+          install-command: npm install
+          browser: chrome
+      - name: Publish Report
+        uses: peaceiris/actions-gh-pages@v3
+        with: 
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./mochawesome-report
+          
